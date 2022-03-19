@@ -29,6 +29,7 @@ namespace Web.Framework.Extensions
 
         public static void AddFramework(this IServiceCollection services, IConfiguration configuration,string connectionString)
         {
+
             services.AddPersistenceDbContext(configuration, connectionString);
             services.AddPersistenceRepositories();
             services.AddApplicationLayer();

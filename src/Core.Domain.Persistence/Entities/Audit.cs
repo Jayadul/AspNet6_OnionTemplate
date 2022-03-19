@@ -1,5 +1,4 @@
 ﻿using Core.Domain.Persistence.Common;
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Core.Domain.Persistence.Entities

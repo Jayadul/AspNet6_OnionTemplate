@@ -12,15 +12,15 @@ namespace Infrastructure.Persistence.Context
     {
         private readonly IDateTimeService _dateTime;
         private readonly IAuthenticatedUser _authenticatedUser;
-        public AppDbContext(DbContextOptions<AppDbContext> options)
+        public AppDbContext(DbContextOptions<AppDbContext> options, IAuthenticatedUser authenticatedUser, IDateTimeService dateTime)
             : base(options)
         {
+            _authenticatedUser = authenticatedUser;
+            _dateTime = dateTime;
         }
 
         public DbSet<Audit> Audits { get; set; }
-
-
-
+        public DbSet<Brand> Brands { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

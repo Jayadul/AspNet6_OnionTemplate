@@ -15,14 +15,17 @@ namespace Infrastructure.Persistence.Repositories
     public class PersistenceUnitOfWork : IPersistenceUnitOfWork
     {
         public IRepositoryAsync<Audit> Audit { get; }
+        public IRepositoryAsync<Brand> Brand { get; }
+
         private readonly AppDbContext _dbContext;
         private bool _disposed;
 
         public PersistenceUnitOfWork(AppDbContext appDbContext,
-            IRepositoryAsync<Audit> auditRepository)
+            IRepositoryAsync<Audit> auditRepository, IRepositoryAsync<Brand> brandRepository)
         {
             _dbContext = appDbContext;
             Audit = auditRepository;
+            Brand = brandRepository;
         }
 
         public void Dispose()

@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Swashbuckle.AspNetCore.JsonMultipartFormDataSupport.Extensions;
@@ -18,6 +21,39 @@ services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web.Api", Version = "v1" });
 });
+//services.AddMvc(setupAction =>
+//{
+//    setupAction.Filters.Add(
+//        new ProducesResponseTypeAttribute(StatusCodes.Status400BadRequest));
+//    setupAction.Filters.Add(
+//        new ProducesResponseTypeAttribute(StatusCodes.Status406NotAcceptable));
+//    setupAction.Filters.Add(
+//        new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
+//    setupAction.Filters.Add(
+//        new ProducesDefaultResponseTypeAttribute());
+//    setupAction.Filters.Add(
+//        new ProducesResponseTypeAttribute(StatusCodes.Status401Unauthorized));
+
+//    setupAction.Filters.Add(
+//        new AuthorizeFilter());
+
+//    setupAction.ReturnHttpNotAcceptable = true;
+
+//    setupAction.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+
+//    var jsonOutputFormatter = setupAction.OutputFormatters
+//        .OfType<SystemTextJsonOutputFormatter>().FirstOrDefault();
+
+//    if (jsonOutputFormatter != null)
+//    {
+//        // remove text/json as it isn't the approved media type
+//        // for working with JSON at API level
+//        if (jsonOutputFormatter.SupportedMediaTypes.Contains("text/json"))
+//        {
+//            jsonOutputFormatter.SupportedMediaTypes.Remove("text/json");
+//        }
+//    }
+//});
 
 var app = builder.Build();
 

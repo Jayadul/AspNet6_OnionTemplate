@@ -11,6 +11,7 @@ namespace Core.Domain.Persistence.Contracts
 {
     public interface IPersistenceUnitOfWork : IDisposable
     {
+        public IRepositoryAsync<Brand> Brand { get; }
         DataConnection Linq2Db { get; }
 
         Task<int> SaveChangesAsync();
