@@ -10,7 +10,7 @@ var connectionString = builder.Configuration.GetConnectionString("ConnStr");
 // Add services to the container.
 services.AddCors();
 services.AddAutoMapper();
-services.AddFramework((global::Microsoft.Extensions.Configuration.IConfiguration)services,connectionString);
+services.AddFramework(builder.Configuration,connectionString);
 services.AddControllers();
 services.AddApiVersioningExtension();
 services.AddJsonMultipartFormDataSupport(JsonSerializerChoice.Newtonsoft);
@@ -38,7 +38,7 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseStaticFiles();
 app.UseApiErrorHandlingMiddleware();
-app.UseSerilogRequestLogging();
+//app.UseSerilogRequestLogging();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

@@ -3,11 +3,6 @@ using Core.Domain.Shared.Wrappers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Shared.Repositories
 {
